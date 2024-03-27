@@ -13,6 +13,7 @@ const App = () => {
     <>
       {/* <h1>{message}</h1> */}
       {/* <ClassBased/> */}
+      <h1>Hello there!</h1>
       <Routes>
         <Route
           path='/'
