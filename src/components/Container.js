@@ -3,9 +3,9 @@ import NavBar from "./NavBar";
 
 const Container = ({ children }) => {
   return (
-    <div>
-        <NavBar/>
-      <h1>This is container</h1>
+    <div className='App-header'>
+      <NavBar />
+      {/* <h1>This is container</h1> */}
       {children}
     </div>
   );

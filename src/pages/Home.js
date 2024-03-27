@@ -2,8 +2,11 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { addOne } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
+import { useRef, useState } from "react";
 function Home() {
   const dispatch = useDispatch();
+  const h1Ref = useRef();
+  const inputRef = useRef();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -30,12 +33,12 @@ function Home() {
     },
   });
 
-  // const [userData, setUserData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   password: "",
-  // });
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,9 +47,17 @@ function Home() {
   };
   const changeRedux = () => {
     dispatch(addOne());
+    setUserData({...userData, firstName: inputRef.current.value})
+    console.log(inputRef.current.value)
+    // h1Ref.current.innerText= "ZZZZZZZZZZZZZZZZZZZZZ"
+    // h1Ref.current.style.color= "red"
+    // console.log(h1Ref.current)
   };
+
   return (
     <div className='App App-header'>
+      <input type="text" ref={inputRef} className="example" />
+      <h1 className="display-1"  ref={h1Ref}>{userData.firstName}</h1>
       {/* <img src={image} alt='' /> */}
       <button onClick={changeRedux}> Change Redux State</button>
       <form action='' onSubmit={formik.handleSubmit}>

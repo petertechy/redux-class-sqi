@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
-      <ul>
+      <ul style={{fontSize: "3rem"}}>
         <li>
           {" "}
           <Link to='/'>Home</Link>{" "}
@@ -19,6 +19,10 @@ const NavBar = () => {
         <li>
           {" "}
           <Link to='/our-services'>Our Services</Link>{" "}
+        </li>
+        <li>
+          {" "}
+          <Link to='/class'>Class Based</Link>{" "}
         </li>
       </ul>
     </div>
